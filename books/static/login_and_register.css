@@ -1,0 +1,237 @@
+.header{
+    width: 100%;
+    height: auto;
+    background-color: #272E54;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fav_books{
+    color: white;
+    padding-left: 20px;
+    font-size: 40px;
+}
+
+#logout{
+    font-size: 30px;
+    color: white;
+    padding-right: 20px;
+}
+
+body{
+    margin: 0px;
+}
+
+
+.grid{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    background-color: #C8DFED;
+    padding-bottom: 50px;
+}
+#grid_bookpage{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    background-color: #C8DFED;
+    padding-bottom: 50px;
+}
+.register{
+    margin: 40px 75px 20px 75px;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6EADDE;
+    border-radius: 20px;
+    box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+    
+}
+.add_book{
+    margin: 40px 75px 20px 75px;
+    min-height: 450px;
+    height: auto;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6EADDE;
+    border-radius: 20px;
+    box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+}
+
+.list_of_books{
+    margin: 40px 75px 20px 75px;
+    padding-left: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    background-color: #6EADDE;
+    border-radius: 20px;
+    box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+}
+
+#description{
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+.login{
+    margin: 40px 85px 20px 85px;
+    min-height: 315px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6EADDE;
+    border-radius: 20px;
+    box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+    
+}
+
+.book_container{
+    margin: 40px 85px 20px 85px;
+    padding: 20px;
+    min-height: 315px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6EADDE;
+    border-radius: 20px;
+    box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+}
+#go_back{
+    margin-left: 750px;
+    font-size: 30px;
+    color: white;
+}
+
+#register_header{
+    margin: 30px 0px 10px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.input_boxes{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 10px;
+}
+
+#description_box{
+    display: flex;
+    align-items: flex-start;
+}
+.input_field{
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.label_field{
+    color: white;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 40%;
+}
+
+#register_button{
+    background-color: #272E54;
+    color: white;
+    width: 25%;
+    height: 10%;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+#login_button{
+    background-color: #272E54;
+    color: white;
+    width: 25%;
+    min-height: 60px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.error{
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(240, 181, 181);
+    color: rgb(189, 61, 61);
+    list-style: none;
+}
+
+.success{
+    color: green;
+    list-style: none;
+}
+
+.book_title_field{
+    margin: 4px;
+    color: white;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+}
+
+.fav_list{
+    margin: 4px;
+}
+.add_favorite{
+    margin: 4px 0px 20px 0px;
+}
+
+#description_field{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#edit_description{
+    margin-left: 10px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+.edit_button{
+    background-color: #272E54;
+    color: white;
+    height: 10%;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 2px 0px 2px 8px;
+    justify-content: center;
+}
+#delete_button{
+    background-color: #272E54;
+    color: white;
+    height: 10%;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 20px 0px 0px 50px;
+    justify-content: center;
+}
+
+#update_buttons{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#delete_book{
+    display: flex;
+    align-items: center;
+}

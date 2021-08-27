@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login_and_register.css">
+    <title>Login or Register</title>
+</head>
+<body>
+    <div class="header">
+        <h1 id="fav_books">Favorite Books</h1>
+    </div>
+    <section class="grid">
+        <form action="/register_user" method=POST class="register" autocomplete="off">
+            {% csrf_token %}
+            <h1 id="register_header">REGISTER</h1>
+            <div class="input_boxes">
+                <label class="label_field" for="first_name">First Name:</label>
+                <input class="input_field" type="text" name="first_name" id="first_name">
+            </div>
+            <div class="input_boxes">
+                <label class="label_field" for="last_name">Last Name:</label>
+                <input class="input_field" type="text" name="last_name" id="last_name">
+            </div> 
+            <div class="input_boxes">
+                <label class="label_field" for="email">Email:</label>
+                <input class="input_field" type="text" name="email" id="email">
+            </div>
+            <div class="input_boxes">
+                <label class="label_field" for="password">Password:</label>
+                <input class="input_field" type="password" autocomplete="new-password" name="password" id="register-password">
+            </div>
+            <div class="input_boxes">
+                <label class="label_field" for="confirm_pass">Confirm Password:</label>
+                <input class="input_field" type="password" name="confirm_pass" id="confirm_pass">
+            </div>
+            <button id="register_button">Register</button>
+            <div class="alert-messages">
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </form>
+        <div class="login_container">
+            <form action="/login_user" method="POST" class="login">
+                {% csrf_token %}
+                <h1 id="register_header">LOGIN</h1>
+                <div class="input_boxes">
+                    <label class="label_field" for="email">Email:</label>
+                    <input class="input_field" type="text" name="email" id="login_email">
+                </div>
+                <div class="input_boxes">
+                    <label class="label_field" for="password">Password:</label>
+                    <input class="input_field" autocomplete="new-password" type="password" name="login_password" id="login-password">
+                </div>
+                <button id="login_button">Login</button>
+
+                <div class="alert-messages">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

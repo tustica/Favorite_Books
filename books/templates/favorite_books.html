@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login_and_register.css">
+    <title>Favorite Books</title>
+</head>
+<body>
+    <div class="header">
+        <h1 id="fav_books">Welcome, {{user.first_name}}!</h1>
+        <h2 id="logout"><a href="/">Logout</a></h2>
+    </div>
+    <section class="grid">
+        <form action="/add_book" method="POST" class="add_book">
+            {% csrf_token %}
+            <h1 id="register_header">Add a new book</h1>
+            <div class="input_boxes">
+                <label class="label_field" for="title">Title:</label>
+                <input class="input_field" type="text" name="title" id="title">
+            </div>
+            <div class="input_boxes" id="description_box">
+                <label class="label_field" for="description">Description:</label>
+                <textarea name="description" id="description" cols="33" rows="10"></textarea>
+            </div> 
+            <button type="submit" id="login_button">Add</button>
+            <div class="alert-messages">
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </form>
+        <div class="list_of_books">
+            <h1 id="register_header">All Books</h1>
+            {% for book in books %}
+                <h2 class="book_title_field"><a href="/book_page/{{book.id}}">{{book.title}}</a></h2>
+                <h4 class="fav_list">(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</h4>
+                {% if user in book.users_who_liked.all %}
+                    <h4 class="add_favorite">this is one of your favorites</h4>
+                {% else %}
+                    <h4 class="add_favorite"><a href="/add_fav/{{book.id}}">Add to Favorites</a></h4>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login_and_register.css">
+    <title>Book</title>
+</head>
+<body>
+    <div class="header">
+        <h1 id="fav_books">Welcome, {{user.first_name}}!</h1>
+        <h2 id="go_back"><a href="/favorite_books">Go Back</a></h2>
+        <h2 id="logout"><a href="/">Logout</a></h2>
+    </div>
+    <section id="grid_bookpage">
+        <div class="book_container">
+            <div action="/login_user">
+                <form action="/delete_book/{{book.id}}" method="POST" id="delete_book">
+                    {% csrf_token %}
+                    <h1 id="register_header">{{book.title}}</h1>
+                    {% if book.uploaded_by.id == request.session.userid %}
+                        <button id="delete_button">Delete</button>
+                    {% endif %}
+                </form>
+                <div id="view_book_container">
+                    <h3 class="book_field">Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</h3>
+                    <h3 class="book_field">Added on: {{book.created_at}}</h3>
+                    <h3 class="book_field">Last Updated on: {{book.updated_at}}</h3>
+                    {% if book.uploaded_by.id == request.session.userid %}
+                        <form action="/edit_book/{{book.id}}" id="description_field" method="POST">
+                            {% csrf_token %}
+                            <h3 class="book_field">Description: </h3>
+                            <input type="hidden" name="title" value="{{book.title}}">
+                            <textarea name="description" id="edit_description" cols="25" rows="3">{{book.description}}</textarea>
+                            <div id="update_buttons">
+                                <button class="edit_button">Update</button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <h3>Description: {{book.description}}</h3>
+                    {% endif %}
+                    {% if user not in book.users_who_liked.all %}
+                        <a href="/add_fav/{{book.id}}" class="label_field">Add to Favorites</a>
+                    {% endif %}
+                </div>
+                <div class="alert-messages">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="list_of_books">
+            <h1 id="register_header">Users Who Like</h1>
+            <ul>
+                {% for user in book.users_who_liked.all %}
+                    <li><h2>{{user.first_name}} {{user.last_name}}{% if request.session.userid == user.id %} <a href="/unfavorite/{{book.id}}"> (Unfavorite)</a> {% endif %}</h2></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
