@@ -31,7 +31,7 @@ body{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     background-color: #C8DFED;
-    padding-bottom: 50px;
+    padding: 50px 0px;
 }
 #grid_bookpage{
     width: 100%;
@@ -51,6 +51,7 @@ body{
     background-color: #6EADDE;
     border-radius: 20px;
     box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+    overflow: auto;
     
 }
 .add_book{
@@ -93,6 +94,7 @@ body{
     background-color: #6EADDE;
     border-radius: 20px;
     box-shadow: 15px 15px #272E54, -15px -15px #ABD3E9;
+    overflow: auto;
     
 }
 
@@ -153,6 +155,7 @@ body{
     height: 10%;
     font-size: 18px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #login_button{
@@ -163,6 +166,7 @@ body{
     font-size: 18px;
     border-radius: 10px;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .error{
@@ -214,6 +218,7 @@ body{
     border-radius: 10px;
     margin: 2px 0px 2px 8px;
     justify-content: center;
+    cursor: pointer;
 }
 #delete_button{
     background-color: #272E54;
@@ -223,12 +228,14 @@ body{
     border-radius: 10px;
     margin: 20px 0px 0px 50px;
     justify-content: center;
+    cursor: pointer;
 }
 
 #update_buttons{
     display: flex;
     flex-direction: column;
     height: 100%;
+    cursor: pointer;
 }
 
 #delete_book{
